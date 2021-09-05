@@ -6,7 +6,7 @@
 <?import javafx.scene.text.TextFlow?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml"  fx:controller="com.maksdave.touch.controller.Enter">>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns:fx="http://javafx.com/fxml/11"  fx:controller="com.maksdave.touch.controller.Enter">>
 
    <children>
       fx:controller="com.maksdave.touch.HelloController">

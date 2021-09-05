@@ -12,7 +12,7 @@ import java.io.IOException;
 public class HelloApplication extends Application{
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Enter.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(Landings.ENTER_LANDING.getLink()));
         stage.setScene(new Scene(root, 1920, 1080));
         stage.setTitle("Hello!");
         stage.setFullScreen(true);

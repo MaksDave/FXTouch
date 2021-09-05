@@ -14,5 +14,7 @@ public interface RedirectHandler {
         Parent root = FXMLLoader.load(getClass().getResource(redirect));
         Stage window = (Stage) clicked.getScene().getWindow();
         window.setScene(new Scene(root,1920,1080));
+        window.setFullScreen(true);
+        window.setFullScreenExitHint("");
     }
 }

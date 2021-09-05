@@ -2,15 +2,18 @@ package com.maksdave.touch.controller;
 
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.enums.Landings;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
 
 public class Choose implements RedirectHandler {
 
-
+    @FXML
     public Button practicalAspectsButton;
+    @FXML
     public Button usageButton;
+    @FXML
     public Button mechanicsButton;
 
     public void ClickToPractical() throws IOException {
