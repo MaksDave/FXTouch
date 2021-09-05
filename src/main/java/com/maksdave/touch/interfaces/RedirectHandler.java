@@ -1,4 +1,4 @@
-package com.maksdave.touch;
+package com.maksdave.touch.interfaces;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,9 +1,8 @@
 package com.maksdave.touch.controller;
 
-import com.maksdave.touch.RedirectHandler;
+import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.enums.Landings;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.media.MediaView;
 

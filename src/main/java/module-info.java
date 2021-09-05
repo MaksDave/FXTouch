@@ -14,5 +14,7 @@ module com.maksdave.touch {
     opens com.maksdave.touch to javafx.fxml;
     exports com.maksdave.touch;
     exports com.maksdave.touch.controller;
+    exports com.maksdave.touch.interfaces;
+    opens com.maksdave.touch.interfaces to javafx.fxml;
 
 }
