@@ -4,7 +4,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.media.MediaView?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maksdave.touch.controller.MechanicsLandingPage">
    <children>
@@ -14,6 +13,6 @@
          </image>
       </ImageView>
       <Button fx:id="returnButton" layoutX="1636.0" layoutY="956.0" mnemonicParsing="false" onMouseClicked="#clickedReturn" onTouchPressed="#touchedReturn" opacity="0.0" prefHeight="100.0" prefWidth="255.0" text="Button" />
-      <MediaView fx:id="video1" fitHeight="200.0" fitWidth="200.0" layoutX="860.0" layoutY="391.0" />
+      <Button fx:id="videoButton1" layoutX="731.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#clickedVideo1" onTouchPressed="#touchedVideo1" opacity="0.0" prefHeight="300.0" prefWidth="446.0" text="Video" />
    </children>
 </Pane>

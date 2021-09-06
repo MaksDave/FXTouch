@@ -1,4 +1,5 @@
 module com.maksdave.touch {
+    requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;

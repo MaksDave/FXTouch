@@ -2,6 +2,8 @@ package com.maksdave.touch.controller;
 
 import com.maksdave.touch.enums.LandingPages;
 import com.maksdave.touch.interfaces.RedirectHandler;
+import com.maksdave.touch.statistics.UsageCounter;
+import com.maksdave.touch.statistics.WriteToFile;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -106,12 +108,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
         stopImage.setOpacity(1);
         returnImage.setOpacity(1);
     }
-
-    public void returnToMenuAction() throws IOException {
-        mediaPlayer.stop();
-        makeRedirect(toMenu, LandingPages.USAGE_LANDING.getLink());
-    }
-
     public void pauseAction() {
         /*if(mediaPlayer.statusProperty().equals(mediaPlayer.getOnPaused())){mediaPlayer.play();}
         else{mediaPlayer.pause();}*/
@@ -208,5 +204,27 @@ public class PlayerPage implements RedirectHandler, Initializable {
                 //mediaPlayer.stop();
             }
         }
+    }
+
+    public void clickedToMenu() throws IOException {
+        mediaPlayer.stop();
+        System.out.println(getVideoSource());
+        System.out.println(getVideoSource().startsWith("src/main/resources/media"));
+        UsageCounter.ADDOVERALLCLICKSAMOUNT();
+        WriteToFile writeToFile = new WriteToFile(getVideoSource());
+        if(getVideoSource().startsWith("src/main/resources/media.usage")){
+            makeRedirect(toMenu, LandingPages.USAGE_LANDING.getLink());
+        }
+        if(getVideoSource().startsWith("src/main/resources/media.aspects")){
+            makeRedirect(toMenu, LandingPages.ASPECTS_LANDING.getLink());
+        }
+        if(getVideoSource().startsWith("src/main/resources/media.mechanics")){
+            makeRedirect(toMenu, LandingPages.MECHANICS_LANDING.getLink());
+        }
+
+    }
+
+    public void touchedToMenu(TouchEvent touchEvent) throws IOException {
+        clickedToMenu();
     }
 }

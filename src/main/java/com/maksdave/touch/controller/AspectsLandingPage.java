@@ -1,29 +1,27 @@
 package com.maksdave.touch.controller;
 
+import com.maksdave.touch.enums.AspectsVideos;
 import com.maksdave.touch.enums.LandingPages;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
-import javafx.scene.media.MediaView;
 
 import java.io.IOException;
 
 public class AspectsLandingPage implements RedirectHandler {
-    
+
     public Button returnButton;
     
-    public MediaView video1;
+    public Button video1;
     
-    public MediaView video2;
+    public Button video2;
     
-    public MediaView video3;
+    public Button video3;
     
-    public MediaView video4;
+    public Button video4;
     
-    public MediaView video5;
+    public Button video5;
     
-    public MediaView video6;
+    public Button video6;
 
     public void clickedReturn() throws IOException {
         makeRedirect(returnButton, LandingPages.CHOOSE_LANDING.getLink());
@@ -33,34 +31,52 @@ public class AspectsLandingPage implements RedirectHandler {
         clickedReturn();
     }
 
-    public void clickedVideo1(MouseEvent mouseEvent) {
+    public void clickedVideo1() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO1.getLink());
+        makeRedirect(video1,LandingPages.PLAYER_LANDING.getLink());
     }
 
-    public void touchedVideo1(TouchEvent touchEvent) {
+    public void touchedVideo1() throws IOException {
+        clickedVideo1();
     }
-    public void clickedVideo2(MouseEvent mouseEvent) {
-    }
-
-    public void touchedVideo2(TouchEvent touchEvent) {
-    }
-    public void clickedVideo3(MouseEvent mouseEvent) {
+    public void clickedVideo2() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO2.getLink());
+        makeRedirect(video2,LandingPages.PLAYER_LANDING.getLink());
     }
 
-    public void touchedVideo3(TouchEvent touchEvent) {
+    public void touchedVideo2() throws IOException {
+        clickedVideo2();
     }
-    public void clickedVideo4(MouseEvent mouseEvent) {
-    }
-
-    public void touchedVideo4(TouchEvent touchEvent) {
-    }
-    public void clickedVideo5(MouseEvent mouseEvent) {
+    public void clickedVideo3() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO3.getLink());
+        makeRedirect(video3,LandingPages.PLAYER_LANDING.getLink());
     }
 
-    public void touchedVideo5(TouchEvent touchEvent) {
+    public void touchedVideo3() throws IOException {
+        clickedVideo3();
     }
-    public void clickedVideo6(MouseEvent mouseEvent) {
+    public void clickedVideo4() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO4.getLink());
+        makeRedirect(video4,LandingPages.PLAYER_LANDING.getLink());
     }
 
-    public void touchedVideo6(TouchEvent touchEvent) {
+    public void touchedVideo4() throws IOException {
+        clickedVideo4();
+    }
+    public void clickedVideo5() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO5.getLink());
+        makeRedirect(video5,LandingPages.PLAYER_LANDING.getLink());
+    }
+
+    public void touchedVideo5() throws IOException {
+        clickedVideo5();
+    }
+    public void clickedVideo6() throws IOException {
+        PlayerPage.setVideoSource(AspectsVideos.VIDEO6.getLink());
+        makeRedirect(video6,LandingPages.PLAYER_LANDING.getLink());
+    }
+
+    public void touchedVideo6() throws IOException {
+        clickedVideo6();
     }
 }

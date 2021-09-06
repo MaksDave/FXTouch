@@ -4,7 +4,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.media.MediaView?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maksdave.touch.controller.AspectsLandingPage">
    <children>
@@ -14,11 +13,11 @@
          </image>
       </ImageView>
       <Button fx:id="returnButton" layoutX="1637.0" layoutY="956.0" mnemonicParsing="false" onMouseClicked="#clickedReturn" onTouchPressed="#touchedReturn" opacity="0.0" prefHeight="101.0" prefWidth="261.0" text="Button" />
-      <MediaView fx:id="video1" fitHeight="200.0" fitWidth="200.0" layoutX="249.0" layoutY="239.0" onMouseClicked="#clickedVideo1" onTouchPressed="#touchedVideo1" />
-      <MediaView fx:id="video2" fitHeight="200.0" fitWidth="200.0" layoutX="860.0" layoutY="239.0" onMouseClicked="#clickedVideo2" onTouchPressed="#touchedVideo2" />
-      <MediaView fx:id="video3" fitHeight="200.0" fitWidth="200.0" layoutX="1501.0" layoutY="239.0" onMouseClicked="#clickedVideo3" onTouchPressed="#touchedVideo3" />
-      <MediaView fx:id="video4" fitHeight="200.0" fitWidth="200.0" layoutX="249.0" layoutY="629.0" onMouseClicked="#clickedVideo4" onTouchPressed="#touchedVideo4" />
-      <MediaView fx:id="video5" fitHeight="200.0" fitWidth="200.0" layoutX="855.0" layoutY="629.0" onMouseClicked="#clickedVideo5" onTouchPressed="#touchedVideo5" />
-      <MediaView fx:id="video6" fitHeight="200.0" fitWidth="200.0" layoutX="1501.0" layoutY="629.0" onMouseClicked="#clickedVideo6" onTouchPressed="#touchedVideo6" />
+      <Button fx:id="video1" layoutX="157.0" layoutY="217.0" onMouseClicked="#clickedVideo1" onTouchPressed="#touchedVideo1" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
+      <Button fx:id="video2" layoutX="764.0" layoutY="216.0" onMouseClicked="#clickedVideo2" onTouchPressed="#touchedVideo2" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
+      <Button fx:id="video3" layoutX="1402.0" layoutY="216.0" onMouseClicked="#clickedVideo3" onTouchPressed="#touchedVideo3" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
+      <Button fx:id="video4" layoutX="157.0" layoutY="601.0" onMouseClicked="#clickedVideo4" onTouchPressed="#touchedVideo4" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
+      <Button fx:id="video5" layoutX="763.0" layoutY="602.0" onMouseClicked="#clickedVideo5" onTouchPressed="#touchedVideo5" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
+      <Button fx:id="video6" layoutX="1406.0" layoutY="603.0" onMouseClicked="#clickedVideo6" onTouchPressed="#touchedVideo6" opacity="0.0" prefHeight="251.0" prefWidth="383.0" />
    </children>
 </Pane>
