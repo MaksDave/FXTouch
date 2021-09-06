@@ -42,22 +42,23 @@ public class UsageLandingPage implements RedirectHandler {
     public void touchedVideo1() throws IOException {
         clickedVideo1();
     }
-    public void clickedVideo2(MouseEvent mouseEvent) throws IOException {
+    public void clickedVideo2() throws IOException {
         PlayerPage.setVideoSource(UsageVideos.VIDEO1.getLink());
         makeRedirect(video1,LandingPages.PLAYER_LANDING.getLink());
     }
 
-    public void touchedVideo2(TouchEvent touchEvent) {
+    public void touchedVideo2() throws IOException {
+        clickedVideo2();
     }
-    public void clickedVideo3(MouseEvent mouseEvent) {
-    }
-
-    public void touchedVideo3(TouchEvent touchEvent) {
-    }
-    public void clickedVideo4(MouseEvent mouseEvent) {
+    public void clickedVideo3() {
     }
 
-    public void touchedVideo4(TouchEvent touchEvent) {
+    public void touchedVideo3() {
+    }
+    public void clickedVideo4() {
+    }
+
+    public void touchedVideo4() {
     }
 
 }

@@ -1,19 +1,16 @@
 package com.maksdave.touch.controller;
 
-import com.maksdave.touch.PlayerHandler;
 import com.maksdave.touch.enums.LandingPages;
-import com.maksdave.touch.enums.UsageVideos;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -32,7 +29,6 @@ import java.util.concurrent.Callable;
 
 public class PlayerPage implements RedirectHandler, Initializable {
 
-
     public MediaView videoZone;
 
     public Slider sliderVideoZone;
@@ -42,16 +38,24 @@ public class PlayerPage implements RedirectHandler, Initializable {
     public Button toMenu;
 
     public Button pause;
+
     public Label currentTimeLabel;
+
     public Label totalTimeLabel;
 
     public Media mediaVideo;
 
     public MediaPlayer mediaPlayer;
+
     private static String videoSource;
+
     public Circle circle;
+
     public Polygon playArrow;
 
+    public ImageView stopImage;
+
+    public ImageView returnImage;
 
     public static String getVideoSource() {
         return videoSource;
@@ -99,7 +103,8 @@ public class PlayerPage implements RedirectHandler, Initializable {
         mediaPlayer.stop();
         circle.setOpacity(0.60);
         playArrow.setOpacity(1);
-
+        stopImage.setOpacity(1);
+        returnImage.setOpacity(1);
     }
 
     public void returnToMenuAction() throws IOException {
@@ -115,14 +120,18 @@ public class PlayerPage implements RedirectHandler, Initializable {
         boolean isPaused = mediaPlayer.getStatus().equals((MediaPlayer.Status.PAUSED));
         boolean isStopped = mediaPlayer.getStatus().equals((MediaPlayer.Status.STOPPED));
         boolean isReady = mediaPlayer.getStatus().equals((MediaPlayer.Status.READY));
-        if(isPaused||isStopped||isReady)
+        if(isPaused||isReady)
         {
             circle.setOpacity(0);
             playArrow.setOpacity(0);
+            stopImage.setOpacity(0);
+            returnImage.setOpacity(0);
             mediaPlayer.play();}
         else{
             circle.setOpacity(0.60);
             playArrow.setOpacity(1);
+            stopImage.setOpacity(1);
+            returnImage.setOpacity(1);
             mediaPlayer.pause();
         }
     }
@@ -182,23 +191,22 @@ public class PlayerPage implements RedirectHandler, Initializable {
                 }
             }
         });
-
-
-
     }
     public void labelMatchEndVideo(String labelTime, String labelTotalTime){
         for (int i = 0;i<labelTotalTime.length(); i++){
             if(labelTime.charAt(i)!= labelTotalTime.charAt(i)){
-                /*circle.setOpacity(0);
-                playArrow.setOpacity(0);*/
+                circle.setOpacity(0);
+                playArrow.setOpacity(0);
+                stopImage.setOpacity(0);
+                returnImage.setOpacity(0);
                 break;
             }else{
                 circle.setOpacity(0.60);
                 playArrow.setOpacity(1);
+                stopImage.setOpacity(1);
+                returnImage.setOpacity(1);
                 //mediaPlayer.stop();
             }
-
         }
     }
-
 }

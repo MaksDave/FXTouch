@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="mainScreen" fitHeight="1080.0" fitWidth="1920.0" layoutX="-3.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../com/maksdave/touch/ENTER.png" />
+            <Image url="@../pictures/ENTER.png" />
          </image>
       </ImageView>
       <Button fx:id="enterButton" layoutX="399.0" layoutY="98.0" mnemonicParsing="false" onMouseClicked="#clickedEnter" onTouchPressed="#touchedEnter" opacity="0.0" prefHeight="804.0" prefWidth="1131.0" text="Button" />

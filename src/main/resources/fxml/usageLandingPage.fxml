@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutX="-5.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../com/maksdave/touch/CLINIC-1.png" />
+            <Image url="@../pictures/CLINIC-1.png" />
          </image>
       </ImageView>
       <Button fx:id="returnButton" layoutX="1640.0" layoutY="952.0" mnemonicParsing="false" onMouseClicked="#clickedReturn" onTouchPressed="#touchedReturn" opacity="0.0" prefHeight="114.0" prefWidth="266.0" text="Button" />

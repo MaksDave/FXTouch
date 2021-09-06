@@ -2,14 +2,12 @@ package com.maksdave.touch.controller;
 
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.enums.LandingPages;
-import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
 
 public class Choose implements RedirectHandler {
 
-    
     public Button practicalAspectsButton;
     
     public Button usageButton;
@@ -39,7 +37,4 @@ public class Choose implements RedirectHandler {
     public void touchedMechanics() throws IOException {
         clickedMechanics();
     }
-
-    //Node and resource URL for scene swap.
-    
 }
