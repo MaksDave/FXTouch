@@ -1,14 +1,16 @@
 package com.maksdave.touch.controller;
 
 import com.maksdave.touch.enums.MechanicsVideos;
+import com.maksdave.touch.enums.UsageVideos;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.enums.LandingPages;
+import com.maksdave.touch.interfaces.VideoPlayer;
 import javafx.scene.control.Button;
 import javafx.scene.input.TouchEvent;
 
 import java.io.IOException;
 
-public class MechanicsLandingPage implements RedirectHandler {
+public class MechanicsLandingPage implements RedirectHandler, VideoPlayer {
     
     public Button returnButton;
 
@@ -23,8 +25,8 @@ public class MechanicsLandingPage implements RedirectHandler {
     }
 
     public void clickedVideo1() throws IOException {
-        PlayerPage.setVideoSource(MechanicsVideos.VIDEO1.getLink());
-        makeRedirect(videoButton1,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(MechanicsVideos.VIDEO1.getLink(),videoButton1);
+
     }
 
     public void touchedVideo1(TouchEvent touchEvent) throws IOException {

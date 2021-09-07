@@ -25,6 +25,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
@@ -50,6 +51,8 @@ public class PlayerPage implements RedirectHandler, Initializable {
     public MediaPlayer mediaPlayer;
 
     private static String videoSource;
+
+    private String videoResource;
 
     public Circle circle;
 
@@ -134,7 +137,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         mediaVideo = new Media(new File(videoSource).toURI().toString());
         mediaPlayer=new MediaPlayer(mediaVideo);
         mediaPlayer.pause();
@@ -201,7 +203,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
                 playArrow.setOpacity(1);
                 stopImage.setOpacity(1);
                 returnImage.setOpacity(1);
-                //mediaPlayer.stop();
             }
         }
     }
@@ -210,8 +211,7 @@ public class PlayerPage implements RedirectHandler, Initializable {
         mediaPlayer.stop();
         System.out.println(getVideoSource());
         System.out.println(getVideoSource().startsWith("src/main/resources/media"));
-        UsageCounter.ADDOVERALLCLICKSAMOUNT();
-        WriteToFile writeToFile = new WriteToFile(getVideoSource());
+
         if(getVideoSource().startsWith("src/main/resources/media.usage")){
             makeRedirect(toMenu, LandingPages.USAGE_LANDING.getLink());
         }
@@ -221,10 +221,14 @@ public class PlayerPage implements RedirectHandler, Initializable {
         if(getVideoSource().startsWith("src/main/resources/media.mechanics")){
             makeRedirect(toMenu, LandingPages.MECHANICS_LANDING.getLink());
         }
+        UsageCounter.ADDOVERALLCLICKSAMOUNT();
+        WriteToFile writeToFile = new WriteToFile(getVideoSource());
 
     }
 
     public void touchedToMenu(TouchEvent touchEvent) throws IOException {
         clickedToMenu();
     }
-}
+
+    }
+

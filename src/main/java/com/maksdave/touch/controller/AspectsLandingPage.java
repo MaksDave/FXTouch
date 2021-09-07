@@ -2,12 +2,14 @@ package com.maksdave.touch.controller;
 
 import com.maksdave.touch.enums.AspectsVideos;
 import com.maksdave.touch.enums.LandingPages;
+import com.maksdave.touch.enums.UsageVideos;
 import com.maksdave.touch.interfaces.RedirectHandler;
+import com.maksdave.touch.interfaces.VideoPlayer;
 import javafx.scene.control.Button;
 
 import java.io.IOException;
 
-public class AspectsLandingPage implements RedirectHandler {
+public class AspectsLandingPage implements RedirectHandler, VideoPlayer {
 
     public Button returnButton;
     
@@ -32,48 +34,42 @@ public class AspectsLandingPage implements RedirectHandler {
     }
 
     public void clickedVideo1() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO1.getLink());
-        makeRedirect(video1,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO1.getLink(),video1);
     }
 
     public void touchedVideo1() throws IOException {
         clickedVideo1();
     }
     public void clickedVideo2() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO2.getLink());
-        makeRedirect(video2,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO2.getLink(),video2);
     }
 
     public void touchedVideo2() throws IOException {
         clickedVideo2();
     }
     public void clickedVideo3() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO3.getLink());
-        makeRedirect(video3,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO3.getLink(),video3);
     }
 
     public void touchedVideo3() throws IOException {
         clickedVideo3();
     }
     public void clickedVideo4() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO4.getLink());
-        makeRedirect(video4,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO4.getLink(),video4);
     }
 
     public void touchedVideo4() throws IOException {
         clickedVideo4();
     }
     public void clickedVideo5() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO5.getLink());
-        makeRedirect(video5,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO5.getLink(),video5);
     }
 
     public void touchedVideo5() throws IOException {
         clickedVideo5();
     }
     public void clickedVideo6() throws IOException {
-        PlayerPage.setVideoSource(AspectsVideos.VIDEO6.getLink());
-        makeRedirect(video6,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(AspectsVideos.VIDEO6.getLink(),video6);
     }
 
     public void touchedVideo6() throws IOException {

@@ -3,9 +3,10 @@ package com.maksdave.touch.controller;
 import com.maksdave.touch.enums.UsageVideos;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.enums.LandingPages;
+import com.maksdave.touch.interfaces.VideoPlayer;
 import javafx.scene.control.Button;
 import java.io.IOException;
-public class UsageLandingPage implements RedirectHandler {
+public class UsageLandingPage implements RedirectHandler, VideoPlayer {
 
 
     public Button returnButton;
@@ -26,8 +27,7 @@ public class UsageLandingPage implements RedirectHandler {
     }
 
     public void clickedVideo1() throws IOException {
-        PlayerPage.setVideoSource(UsageVideos.VIDEO1.getLink());
-        makeRedirect(video1,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(UsageVideos.VIDEO1.getLink(),video1);
     }
 
     public void touchedVideo1() throws IOException {
@@ -36,22 +36,21 @@ public class UsageLandingPage implements RedirectHandler {
     public void clickedVideo2() throws IOException {
         PlayerPage.setVideoSource(UsageVideos.VIDEO2.getLink());
         makeRedirect(video2,LandingPages.PLAYER_LANDING.getLink());
+        //runPlayer(UsageVideos.VIDEO2.getLink(),video2);
     }
 
     public void touchedVideo2() throws IOException {
         clickedVideo2();
     }
     public void clickedVideo3() throws IOException {
-        PlayerPage.setVideoSource(UsageVideos.VIDEO3.getLink());
-        makeRedirect(video3,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(UsageVideos.VIDEO2.getLink(),video2);
     }
 
     public void touchedVideo3() throws IOException {
         clickedVideo3();
     }
     public void clickedVideo4() throws IOException {
-        PlayerPage.setVideoSource(UsageVideos.VIDEO4.getLink());
-        makeRedirect(video4,LandingPages.PLAYER_LANDING.getLink());
+        runPlayer(UsageVideos.VIDEO2.getLink(),video2);
     }
 
     public void touchedVideo4() throws IOException {

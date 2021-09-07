@@ -17,6 +17,9 @@ public class WriteToFile {
                 //more code
                 out.println(UsageCounter.getOVERALLCLICKSAMOUNT());
                 //more code
+                out.close();
+                out.flush();
+
             } catch (IOException e) {
                 //exception handling left as an exercise for the reader
             }

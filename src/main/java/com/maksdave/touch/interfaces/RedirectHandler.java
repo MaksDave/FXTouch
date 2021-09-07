@@ -21,8 +21,8 @@ public interface RedirectHandler {
         } else {
             System.out.println("Url is null for file " + redirect );
         }
-        UsageCounter.ADDOVERALLCLICKSAMOUNT();
-        WriteToFile writeToFile = new WriteToFile(redirect);
+        /*UsageCounter.ADDOVERALLCLICKSAMOUNT();
+        WriteToFile writeToFile = new WriteToFile(redirect);*/
         Parent root = FXMLLoader.load(fxmlURL);
         Stage window = (Stage) clicked.getScene().getWindow();
         Scene scene = new Scene(root,1920,1080);
@@ -34,20 +34,5 @@ public interface RedirectHandler {
                 window.close();
             }
         });
-    }
-    default String makeRedirect(Button clicked, String redirect,String videoSource) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(redirect));
-
-        Stage window = (Stage) clicked.getScene().getWindow();
-        Scene scene = new Scene(root,1920,1080);
-        window.setScene(scene);
-        window.setFullScreen(true);
-        window.setFullScreenExitHint("");
-        window.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
-            if (KeyCode.ESCAPE == event.getCode()) {
-                window.close();
-            }
-        });
-        return videoSource;
     }
 }
