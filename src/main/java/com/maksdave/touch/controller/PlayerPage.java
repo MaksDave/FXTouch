@@ -3,7 +3,6 @@ package com.maksdave.touch.controller;
 import com.maksdave.touch.enums.LandingPages;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.statistics.UsageCounter;
-import com.maksdave.touch.statistics.WriteToFile;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,6 +30,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
 
 public class PlayerPage implements RedirectHandler, Initializable {
+    private UsageCounter usageCounter = new UsageCounter();
 
     public MediaView videoZone;
 
@@ -137,11 +137,13 @@ public class PlayerPage implements RedirectHandler, Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mediaVideo = new Media(new File(videoSource).toURI().toString());
-        mediaPlayer=new MediaPlayer(mediaVideo);
+
+        mediaVideo = new Media(getClass().getResource(videoSource).toExternalForm());
+        mediaPlayer = new MediaPlayer(mediaVideo);
         mediaPlayer.pause();
         videoZone.setMediaPlayer(mediaPlayer);
         bindCurrentTimeLabel();
+        //System.out.println(videoSource);
         mediaPlayer.totalDurationProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observableValue, Duration oldDuration, Duration newDuration) {
@@ -153,7 +155,7 @@ public class PlayerPage implements RedirectHandler, Initializable {
         sliderVideoZone.valueChangingProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean wasChanging, Boolean isChanging) {
-                if(!isChanging){
+                if (!isChanging) {
                     mediaPlayer.seek(Duration.seconds(sliderVideoZone.getValue()));
                 }
             }
@@ -163,17 +165,17 @@ public class PlayerPage implements RedirectHandler, Initializable {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
                 double currentTime = mediaPlayer.getCurrentTime().toSeconds();
-                if(Math.abs(currentTime - newValue.doubleValue()) > 0.5){
+                if (Math.abs(currentTime - newValue.doubleValue()) > 0.5) {
                     mediaPlayer.seek(Duration.seconds(newValue.doubleValue()));
                 }
-                labelMatchEndVideo(currentTimeLabel.getText(),totalTimeLabel.getText());
+                labelMatchEndVideo(currentTimeLabel.getText(), totalTimeLabel.getText());
             }
         });
 
         mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observableValue, Duration oldTime, Duration newTime) {
-                if(!sliderVideoZone.isValueChanging()){
+                if (!sliderVideoZone.isValueChanging()) {
                     sliderVideoZone.setValue(newTime.toSeconds());
                 }
                 labelMatchEndVideo(currentTimeLabel.getText(), totalTimeLabel.getText());
@@ -183,7 +185,7 @@ public class PlayerPage implements RedirectHandler, Initializable {
         mediaPlayer.setOnEndOfMedia(new Runnable() {
             @Override
             public void run() {
-                if(currentTimeLabel.textProperty().equals(totalTimeLabel.textProperty())){
+                if (currentTimeLabel.textProperty().equals(totalTimeLabel.textProperty())) {
                     currentTimeLabel.textProperty().unbind();
                     currentTimeLabel.setText(getTime(mediaPlayer.getTotalDuration()) + " / ");
                 }
@@ -212,18 +214,15 @@ public class PlayerPage implements RedirectHandler, Initializable {
         System.out.println(getVideoSource());
         System.out.println(getVideoSource().startsWith("src/main/resources/media"));
 
-        if(getVideoSource().startsWith("src/main/resources/media.usage")){
+        if(getVideoSource().startsWith("/media.usage")){
             makeRedirect(toMenu, LandingPages.USAGE_LANDING.getLink());
         }
-        if(getVideoSource().startsWith("src/main/resources/media.aspects")){
+        if(getVideoSource().startsWith("/media.aspects")){
             makeRedirect(toMenu, LandingPages.ASPECTS_LANDING.getLink());
         }
-        if(getVideoSource().startsWith("src/main/resources/media.mechanics")){
+        if(getVideoSource().startsWith("/media.mechanics")){
             makeRedirect(toMenu, LandingPages.MECHANICS_LANDING.getLink());
         }
-        UsageCounter.ADDOVERALLCLICKSAMOUNT();
-        WriteToFile writeToFile = new WriteToFile(getVideoSource());
-
     }
 
     public void touchedToMenu(TouchEvent touchEvent) throws IOException {

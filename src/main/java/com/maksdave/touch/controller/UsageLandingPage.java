@@ -16,6 +16,12 @@ public class UsageLandingPage implements RedirectHandler, VideoPlayer {
     public Button video3;
     public Button video4;
     public PlayerPage playerPage;
+    private static int uV1;
+    private static int uV2;
+    private static int uV3;
+    private static int uV4;
+    private static int uV5;
+    private static int uV6;
 
 
     public void clickedReturn() throws IOException {
@@ -27,30 +33,32 @@ public class UsageLandingPage implements RedirectHandler, VideoPlayer {
     }
 
     public void clickedVideo1() throws IOException {
-        runPlayer(UsageVideos.VIDEO1.getLink(),video1);
+        uV1++;
+        runPlayer(UsageVideos.VIDEO1.getLink(),video1,uV1);
     }
 
     public void touchedVideo1() throws IOException {
         clickedVideo1();
     }
     public void clickedVideo2() throws IOException {
-        PlayerPage.setVideoSource(UsageVideos.VIDEO2.getLink());
-        makeRedirect(video2,LandingPages.PLAYER_LANDING.getLink());
-        //runPlayer(UsageVideos.VIDEO2.getLink(),video2);
+        uV2++;
+        runPlayer(UsageVideos.VIDEO2.getLink(),video2,uV2);
     }
 
     public void touchedVideo2() throws IOException {
         clickedVideo2();
     }
     public void clickedVideo3() throws IOException {
-        runPlayer(UsageVideos.VIDEO2.getLink(),video2);
+        uV3++;
+        runPlayer(UsageVideos.VIDEO3.getLink(),video3,uV3);
     }
 
     public void touchedVideo3() throws IOException {
         clickedVideo3();
     }
     public void clickedVideo4() throws IOException {
-        runPlayer(UsageVideos.VIDEO2.getLink(),video2);
+        uV4++;
+        runPlayer(UsageVideos.VIDEO4.getLink(),video4,uV4);
     }
 
     public void touchedVideo4() throws IOException {

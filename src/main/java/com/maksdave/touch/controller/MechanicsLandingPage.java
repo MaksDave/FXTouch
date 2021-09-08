@@ -16,6 +16,8 @@ public class MechanicsLandingPage implements RedirectHandler, VideoPlayer {
 
     public Button videoButton1;
 
+    private static int mV1;
+
     public void clickedReturn() throws IOException {
         makeRedirect(returnButton, LandingPages.CHOOSE_LANDING.getLink());
     }
@@ -25,7 +27,8 @@ public class MechanicsLandingPage implements RedirectHandler, VideoPlayer {
     }
 
     public void clickedVideo1() throws IOException {
-        runPlayer(MechanicsVideos.VIDEO1.getLink(),videoButton1);
+        mV1++;
+        runPlayer(MechanicsVideos.VIDEO1.getLink(),videoButton1,mV1);
 
     }
 

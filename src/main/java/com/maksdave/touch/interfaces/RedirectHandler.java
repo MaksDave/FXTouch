@@ -21,8 +21,6 @@ public interface RedirectHandler {
         } else {
             System.out.println("Url is null for file " + redirect );
         }
-        /*UsageCounter.ADDOVERALLCLICKSAMOUNT();
-        WriteToFile writeToFile = new WriteToFile(redirect);*/
         Parent root = FXMLLoader.load(fxmlURL);
         Stage window = (Stage) clicked.getScene().getWindow();
         Scene scene = new Scene(root,1920,1080);
@@ -31,6 +29,7 @@ public interface RedirectHandler {
         window.setFullScreenExitHint("");
         window.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.ESCAPE == event.getCode()) {
+                WriteToFile writeToFile = new WriteToFile("Program terminated",0);
                 window.close();
             }
         });

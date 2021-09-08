@@ -2,27 +2,31 @@ package com.maksdave.touch.statistics;
 
 import java.io.*;
 
+
 public class WriteToFile {
     private String path = "src/main/resources/statistics/data.txt";
-
-    public WriteToFile(String redirectTo) throws IOException {
+    public WriteToFile(String videoSource, int counter){
+        System.out.println(path + "Путь!");
         File output= new File(path);
-        UsageCounter usageCounter = new UsageCounter();
-        usageCounter.setRedirectedTo(redirectTo);
+        System.out.println(output);
+
         try(FileWriter fw = new FileWriter(output, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
-            {
-                out.println(usageCounter.getRedirectedTo());
-                //more code
-                out.println(UsageCounter.getOVERALLCLICKSAMOUNT());
-                //more code
-                out.close();
-                out.flush();
-
+        {
+            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(output), "utf-8"))) {
+                writer.write(videoSource + " " + counter);
+                writer.close();
             } catch (IOException e) {
-                //exception handling left as an exercise for the reader
+                e.printStackTrace();
             }
-
+            out.println(videoSource + "" + counter);
+            out.close();
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+  }
     }
+
 }
