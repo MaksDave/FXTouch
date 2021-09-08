@@ -20,8 +20,6 @@ public class UsageLandingPage implements RedirectHandler, VideoPlayer {
     private static int uV2;
     private static int uV3;
     private static int uV4;
-    private static int uV5;
-    private static int uV6;
 
 
     public void clickedReturn() throws IOException {

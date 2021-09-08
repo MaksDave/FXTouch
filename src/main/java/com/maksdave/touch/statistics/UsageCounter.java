@@ -25,25 +25,14 @@ public class UsageCounter {
         this.redirectedTo = redirectedTo;
     }
 
-//    private  Map<String, Integer> videoStatistics = new HashMap<>();
-//
-//    {
-//        videoStatistics.put("/media.usageVideoFiles/Реальная клиническая практика терапии.mp4", 0);
-//        videoStatistics.put("/media.usageVideoFiles/Как долго принимали дупилмаб.mp4", 0);
-//        videoStatistics.put("/media.usageVideoFiles/Оценка эффективности применения дупилумаба у пациентов c АтД.mp4", 0);
-//        videoStatistics.put("/media.usageVideoFiles/Профиль безопасности.mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Какие лабораторные показатели необходимо отслеживать .mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Кому может быть назначен препарат дупилумаб.mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Как применять дупилумаб у пациентов с АтД.mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Можно ли применять дупилумаб у пациентов с инфекциями.mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Что будет, если отменить терапию.mp4", 0);
-//        videoStatistics.put("/media.aspectsVideoFiles/Противопоказания к применению дупилумаба.mp4", 0);
-//        videoStatistics.put("/media.mechanicsVideoFiles/Как дупилумаб действует при АтД.mp4", 0);
-//    }
-//
-//    public Map<String, Integer> getVideoStatistics() {
-//        return videoStatistics;
-//    }
+    public static Map<String, Integer> videoStatistics = new HashMap<>();
+
+    {
+    }
+
+    public Map<String, Integer> getVideoStatistics() {
+        return videoStatistics;
+    }
 
 
 
