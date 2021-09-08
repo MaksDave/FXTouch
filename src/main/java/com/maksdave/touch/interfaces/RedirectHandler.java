@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public interface RedirectHandler {
-
+    WriteToFile writeToFile = new WriteToFile();
     default void makeRedirect(Button clicked, String redirect) throws IOException {
         var fxmlURL = getClass().getResource(redirect);
         if (fxmlURL != null) {
@@ -29,7 +29,7 @@ public interface RedirectHandler {
         window.setFullScreenExitHint("");
         window.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.ESCAPE == event.getCode()) {
-                WriteToFile writeToFile = new WriteToFile("Program terminated",0);
+                writeToFile.writeFinalString();
                 window.close();
             }
         });

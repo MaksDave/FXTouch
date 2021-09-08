@@ -14,7 +14,8 @@ public interface VideoPlayer extends RedirectHandler{
         System.out.println(videoSource);
         PlayerPage.setVideoSource(videoSource);
         UsageCounter.videoStatistics.put(videoSource,count);
-          //WriteToFile writeToFile = new WriteToFile(videoSource,count);
+          WriteToFile writeToFile = new WriteToFile();
+          writeToFile.writeTheStatistics();
         System.out.println("Current video source is: " + videoSource  + " " + count);
         makeRedirect(button, LandingPages.PLAYER_LANDING.getLink());
     }
