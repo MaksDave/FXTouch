@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+
+<!--
+  ~ Copyright (c) 2022. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+  ~ Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan. 
+  ~ Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna. 
+  ~ Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus. 
+  ~ Vestibulum commodo. Ut rhoncus gravida arcu. 
+  -->
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.maksdave.touch.controller.MainViewFxController">
+   <children>
+      <ImageView fx:id="mainView" fitHeight="1086.0" fitWidth="1920.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../Work/MainView.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="goTo3DButton" layoutX="981.0" layoutY="526.0" mnemonicParsing="false" onMouseClicked="#goTo3DViewAction" prefHeight="30.0" prefWidth="917.0" text="Переход в окно 3D рассчёта" />
+      <Button fx:id="goToReport" layoutX="22.0" layoutY="526.0" mnemonicParsing="false" onMouseClicked="#openCalculationReport" prefHeight="30.0" prefWidth="916.0" text="Открыть отчёт" />
+      <MediaView fx:id="modelOneView" fitHeight="450.0" fitWidth="900.0" layoutX="30.0" layoutY="48.0" />
+      <MediaView fx:id="modelTwoView" fitHeight="450.0" fitWidth="900.0" layoutX="990.0" layoutY="48.0" />
+      <MediaView fx:id="modelThreeView" fitHeight="450.0" fitWidth="900.0" layoutX="22.0" layoutY="586.0" />
+      <MediaView fx:id="modelFourView" fitHeight="450.0" fitWidth="900.0" layoutX="990.0" layoutY="586.0" />
+   </children>
+</AnchorPane>

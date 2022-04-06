@@ -10,8 +10,9 @@ module com.maksdave.touch {
     requires org.kordamp.ikonli.javafx;
     requires eu.hansolo.tilesfx;
     requires javafx.media;
-
-
+    requires lombok;
+    
+    
     opens com.maksdave.touch to javafx.fxml;
     exports com.maksdave.touch;
     exports com.maksdave.touch.controller;

@@ -1,8 +1,7 @@
 package com.maksdave.touch.controller;
 
-import com.maksdave.touch.enums.LandingPages;
+import com.maksdave.touch.enums.LandingPagesEnum;
 import com.maksdave.touch.interfaces.RedirectHandler;
-import com.maksdave.touch.statistics.UsageCounter;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -22,15 +21,12 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.Callable;
 
 public class PlayerPage implements RedirectHandler, Initializable {
-    private UsageCounter usageCounter = new UsageCounter();
 
     public MediaView videoZone;
 
@@ -51,8 +47,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
     public MediaPlayer mediaPlayer;
 
     private static String videoSource;
-
-    private String videoResource;
 
     public Circle circle;
 
@@ -112,8 +106,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
         returnImage.setOpacity(1);
     }
     public void pauseAction() {
-        /*if(mediaPlayer.statusProperty().equals(mediaPlayer.getOnPaused())){mediaPlayer.play();}
-        else{mediaPlayer.pause();}*/
         circle.setOpacity(0.60);
         playArrow.setOpacity(1);
         boolean isPaused = mediaPlayer.getStatus().equals((MediaPlayer.Status.PAUSED));
@@ -143,7 +135,6 @@ public class PlayerPage implements RedirectHandler, Initializable {
         mediaPlayer.pause();
         videoZone.setMediaPlayer(mediaPlayer);
         bindCurrentTimeLabel();
-        //System.out.println(videoSource);
         mediaPlayer.totalDurationProperty().addListener(new ChangeListener<Duration>() {
             @Override
             public void changed(ObservableValue<? extends Duration> observableValue, Duration oldDuration, Duration newDuration) {
@@ -214,14 +205,8 @@ public class PlayerPage implements RedirectHandler, Initializable {
         System.out.println(getVideoSource());
         System.out.println(getVideoSource().startsWith("src/main/resources/media"));
 
-        if(getVideoSource().startsWith("/media.usage")){
-            makeRedirect(toMenu, LandingPages.USAGE_LANDING.getLink());
-        }
-        if(getVideoSource().startsWith("/media.aspects")){
-            makeRedirect(toMenu, LandingPages.ASPECTS_LANDING.getLink());
-        }
-        if(getVideoSource().startsWith("/media.mechanics")){
-            makeRedirect(toMenu, LandingPages.MECHANICS_LANDING.getLink());
+        if(getVideoSource().startsWith("/media.model")){
+            makeRedirect(toMenu, LandingPagesEnum.MAIN_VIEW_LANDING.name());
         }
     }
 
