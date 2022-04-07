@@ -27,11 +27,11 @@ public class MainViewFxController implements RedirectHandler {
     public ImageView mainView;
     public Button goTo3DButton;
     
-    public void goTo3DViewAction(MouseEvent mouseEvent) throws IOException {
-        makeRedirect(goTo3DButton, LandingPagesEnum.SHOW_ROOM_LANDING.getLink());
-    }
-    
     public void openCalculationReport(MouseEvent mouseEvent) throws IOException {
         makeRedirect(goToReport, LandingPagesEnum.REPORT_PAGE_LANDING.getLink());
+    }
+    
+    public void goTo3DButtonAction(MouseEvent mouseEvent) throws IOException {
+        makeRedirect(goTo3DButton, LandingPagesEnum.SHOW_ROOM_LANDING.getLink());
     }
 }

@@ -9,18 +9,16 @@
 
 package com.maksdave.touch.controller;
 
+import com.maksdave.touch.enums.LandingPagesEnum;
 import com.maksdave.touch.enums.ModelVideosEnum;
 import com.maksdave.touch.interfaces.RedirectHandler;
 import com.maksdave.touch.interfaces.VideoPlayer;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,49 +28,51 @@ public class ShowRoomFxController implements RedirectHandler, Initializable, Vid
     public Button loadModelButton;
     public Button neuralNetworkButton;
     public Button getReportButton;
-    public Button returnToMainScreenButton;
-    public Pane modelSpace;
     public MediaView modelView;
-    @Getter @Setter
+    
     public static String videoSource;
+    
     private static int aV1;
     private static int aV2;
     private static int aV3;
     private static int aV4;
-    
     public Media mediaVideo;
+    
     public MediaPlayer mediaPlayer;
     public Button getNeuralCalculationsButton;
     public Button returnToMainScreenButton1;
     
+    public static void setVideoSource(String videoSource) {
+        ShowRoomFxController.videoSource = videoSource;
+    }
     
     public void loadModelButtonClickedAction(MouseEvent mouseEvent) throws IOException {
-        runPlayer(ModelVideosEnum.VIDEO1.getLink(),loadModelButton,aV1);
+        
+        runPlayer(ModelVideosEnum.VIDEO1.getLink(), loadModelButton, aV1);
     }
     
     public void loadNeuralNetworkButtonClickedAction(MouseEvent mouseEvent) throws IOException {
-        runPlayer(ModelVideosEnum.VIDEO2.getLink(),loadModelButton,aV2);
+        runPlayer(ModelVideosEnum.VIDEO2.getLink(), neuralNetworkButton, aV2);
     }
     
     public void NeuralCalculationsClickedAction(MouseEvent mouseEvent) throws IOException {
-        runPlayer(ModelVideosEnum.VIDEO3.getLink(),loadModelButton,aV3);
+        runPlayer(ModelVideosEnum.VIDEO3.getLink(), getNeuralCalculationsButton, aV3);
     }
     
     public void getReportMouseClickedAction(MouseEvent mouseEvent) {
     }
     
-    public void returnToMainScreenClickedAction(MouseEvent mouseEvent) {
+    public void returnToMainScreenClickedAction(MouseEvent mouseEvent) throws IOException {
+        makeRedirect(returnToMainScreenButton1, LandingPagesEnum.MAIN_VIEW_LANDING.getLink());
     }
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
         mediaVideo = new Media(getClass().getResource(videoSource).toExternalForm());
         mediaPlayer = new MediaPlayer(mediaVideo);
-        mediaPlayer.pause();
+        modelView.setMediaPlayer(mediaPlayer);
         mediaPlayer.setMute(true);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setOnRepeat(mediaPlayer.getOnEndOfMedia());
-        modelView.setMediaPlayer(mediaPlayer);
     }
 }

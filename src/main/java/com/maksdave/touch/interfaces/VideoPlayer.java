@@ -13,7 +13,7 @@ import java.io.IOException;
 public interface VideoPlayer extends RedirectHandler{
     default void runPlayer(String videoSource, Button button,int count) throws IOException {
         System.out.println(videoSource);
-        ShowRoomFxController.setVideoSource(videoSource);
+        ShowRoomFxController.videoSource=videoSource;
         UsageCounter.videoStatistics.put(videoSource,count);
           WriteToFile writeToFile = new WriteToFile();
           writeToFile.writeTheStatistics();
